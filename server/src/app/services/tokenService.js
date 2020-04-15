@@ -5,12 +5,12 @@ module.exports = {
     generate(data) {
         return jwt.sign({
             data: data
-        }, secret, {expiresIn: '10h'});
+        }, SECRET, {expiresIn: '10h'});
     },
     verify(token) {
         return new Promise((resolve, reject) => {
             try {
-                const decoded = jwt.verify(token, secret);
+                const decoded = jwt.verify(token, SECRET);
 
                 resolve({ok: true, data: decoded.data})
             } catch (err) {
