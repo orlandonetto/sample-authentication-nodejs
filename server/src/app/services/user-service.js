@@ -21,10 +21,8 @@ module.exports = {
                 if (user === null)
                     return reject({success: false, message: "Fail to authenticate, because username not found."});
 
-                console.log(username, password);
                 bcrypt.compare(password, user.password)
                     .then(async res => {
-
                         if (!res)
                             return reject({success: false, message: "Fail to authenticate, because password is wrong."});
 
