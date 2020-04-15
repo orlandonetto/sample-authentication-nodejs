@@ -9,7 +9,7 @@ module.exports = {
             .catch(error => res.status(400).json(error));
     },
     async findAll(req, res) {
-        const {limit} = req.query;
+        const {limit} = Number(req.query);
 
         await service.findAll(limit)
             .then(response => res.status(200).json(response))

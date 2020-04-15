@@ -7,13 +7,14 @@ const Schema = new db.Schema({
     },
     message: {
         type: String,
-        required: true
+        required: true,
     },
     createdAt: {
         type: Date,
         default: Date.now
     },
     user: {
+        required: true,
         type: db.Schema.Types.ObjectID,
         ref: 'User'
     }
