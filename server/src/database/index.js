@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const uri = `mongodb://localhost/db-example`;
+const uri = `mongodb://localhost/auth-example`;
 
 mongoose.connect(uri, {
     useNewUrlParser: true,
