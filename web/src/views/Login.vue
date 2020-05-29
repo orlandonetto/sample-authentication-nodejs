@@ -10,7 +10,7 @@
     export default {
         components: {LoginForm},
         created() {
-            if(this.$store.getters.isLogged)
+            if (this.$store.getters.isLogged)
                 this.$router.push('/');
         }
     }

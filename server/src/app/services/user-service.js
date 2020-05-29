@@ -24,7 +24,10 @@ module.exports = {
                 bcrypt.compare(password, user.password)
                     .then(async res => {
                         if (!res)
-                            return reject({success: false, message: "Fail to authenticate, because password is wrong."});
+                            return reject({
+                                success: false,
+                                message: "Fail to authenticate, because password is wrong."
+                            });
 
                         const userResponse = await User.findOne({username});
                         const token = await tokenService.generate(userResponse._id);
@@ -55,4 +58,22 @@ module.exports = {
             }
         });
     },
+    async loadSession(userId) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const user = await User.findOne({_id: userId});
+                const token = tokenService.generate(user._id);
+
+                resolve({
+                    success: true,
+                    message: "Loaded successfully.",
+                    token: token,
+                    user: user
+                })
+                resolve({success: true, message: "User loaded.", user});
+            } catch (e) {
+                reject({success: false, message: e.message});
+            }
+        });
+    }
 };

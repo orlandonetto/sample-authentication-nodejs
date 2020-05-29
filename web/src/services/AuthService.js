@@ -1,8 +1,9 @@
 const axios = require('axios');
+const Store = import('../store');
 
 module.exports = {
     async authenticate(data) {
-        return new Promise(async (resolve, reject) => {
+        return await new Promise(async (resolve, reject) => {
             try {
                 const url = "http://localhost:3000/user/auth";
                 await axios.post(url, data)
@@ -13,11 +14,32 @@ module.exports = {
                         if (!rej.response)
                             return reject('Fail to connect with Api. Try again later.');
 
-                        return reject(rej.response.data.message || 'Authentication failed! \nTry again.');
+                        return reject(rej.response.data.message || 'Authentication failed! Try again.');
                     });
             } catch (err) {
                 return reject(err.message);
             }
         })
+    },
+    async loadSession() {
+        return await new Promise(async (resolve, reject) => {
+            try {
+                const url = "http://localhost:3000/user/load-session";
+                await axios.get(url)
+                    .then(res => {
+                        const {token, user} = res.data;
+
+                        resolve({token, user});
+                    })
+                    .catch(rej => {
+                        if (!rej.response)
+                            return reject('Fail to connect with Api. Try again later.');
+
+                        return reject(rej.response.data.message || 'Load failed! Try again.');
+                    });
+            } catch (err) {
+                return reject(err.message);
+            }
+        });
     }
 };

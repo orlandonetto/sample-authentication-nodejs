@@ -4,6 +4,7 @@ const {authenticate} = require('../middlewares/authentication');
 
 router.post('/', controller.save);
 router.post('/auth', controller.auth);
+router.get('/load-session', authenticate, controller.loadSession);
 router.get('/', authenticate, controller.findAll);
 
 module.exports = router;

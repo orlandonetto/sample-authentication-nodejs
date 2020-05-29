@@ -39,6 +39,12 @@ export default new Vuex.Store({
 
             Axios.defaults.headers.common['Authorization'] = token;
         },
+        loadSession({commit, dispatch}, {token, user}) {
+            commit('SET_TOKEN', token);
+            commit('SET_USER', user);
+
+            Axios.defaults.headers.common['Authorization'] = token;
+        },
         logout: ({commit}) => {
             commit('RESET', '');
         },

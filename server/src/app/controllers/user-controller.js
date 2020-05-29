@@ -21,4 +21,9 @@ module.exports = {
             .then(response => res.status(200).json(response))
             .catch(error => res.status(400).json(error));
     },
+    async loadSession(req, res) {
+        await service.loadSession(req.userId)
+            .then(response => res.status(200).json(response))
+            .catch(error => res.status(400).json(error));
+    },
 };

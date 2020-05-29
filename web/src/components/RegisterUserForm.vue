@@ -76,7 +76,7 @@
                                 @keydown.space.prevent
                         />
                         <div class="row full-width">
-                            <q-btn label="Login" type="submit" class="full-width" color="green"
+                            <q-btn label="Register" type="submit" class="full-width" color="green"
                                    :style="{marginTop: '5px'}"/>
                         </div>
                     </q-form>
@@ -106,9 +106,6 @@
         },
         methods: {
             register() {
-                if (!(this.user.password === this.passwordConfirm))
-                    return;
-
                 userService.register(this.user)
                     .then((data) => {
                         const {message} = data;

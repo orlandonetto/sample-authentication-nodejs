@@ -5,7 +5,7 @@ module.exports = {
     generate(data) {
         return jwt.sign({
             data: data
-        }, SECRET, {expiresIn: '10h'});
+        }, SECRET, {expiresIn: '2h'});
     },
     verify(token) {
         return new Promise((resolve, reject) => {
