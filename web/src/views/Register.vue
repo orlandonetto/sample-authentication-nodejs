@@ -1,9 +1,5 @@
 <template>
     <q-layout view="hHh LpR fFf">
-        <q-header class="bg-primary text-white" height-hint="98">
-            <Toolbar/>
-        </q-header>
-
         <q-page-container>
             <RegisterUserForm/>
         </q-page-container>
@@ -15,10 +11,9 @@
 
 <script>
     import RegisterUserForm from "../components/RegisterUserForm";
-    import Toolbar from "../components/Toolbar";
 
     export default {
-        components: {RegisterUserForm, Toolbar},
+        components: {RegisterUserForm},
     }
 
 </script>

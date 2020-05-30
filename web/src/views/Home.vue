@@ -1,5 +1,5 @@
 <template>
-    <q-layout class="column items-center bg-primary">
+    <q-layout class="column items-center justify-center bg-primary">
         <div class="q-mt-sm col-10 col-sm-8 col-md-4">
             <q-card flat class="column items-center bg-white q-pa-md full-width">
                 <q-card-section class="text-h6">Authentication Manager</q-card-section>

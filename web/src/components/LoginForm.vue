@@ -1,10 +1,10 @@
 <template>
-    <q-layout class="bg-primary column items-center q-pa-md">
+    <q-layout class="bg-primary column justify-center items-center q-pa-md">
 
-        <q-card flat class="column items-center bg-white q-pa-md" :style="getWidth()">
-            <div class="full-width">
+        <q-card class="column items-center bg-white q-pa-md" :style="getWidth()">
+            <q-card-section class="full-width text-h6 text-center">
                 <q-btn
-                        class="justify-start q-ml-xs"
+                        style="position: absolute; left: 0"
                         color="accent"
                         icon="keyboard_arrow_left"
                         size="9px"
@@ -12,9 +12,8 @@
                         @click="back">
                     <q-tooltip content-class="bg-accent">Back to home</q-tooltip>
                 </q-btn>
-            </div>
-
-            <q-card-section class="text-h6">Sign in</q-card-section>
+                Sign in
+            </q-card-section>
             <!-- Form Login -->
             <q-form @submit="login" class="full-width" autofocus>
                 <!--username-->

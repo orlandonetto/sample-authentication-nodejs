@@ -1,11 +1,11 @@
 <template>
-    <q-layout class="bg-primary column items-center q-pa-md">
+    <q-layout class="bg-primary column items-center justify-center q-pa-md">
         <div class="row full-width justify-center">
             <div class="col-10 col-sm-8 col-md-4">
-                <q-card flat class="column items-center bg-white q-pa-md full-width">
-                    <div class="full-width">
+                <q-card class="column items-center bg-white q-pa-md full-width">
+                    <q-card-section class="full-width text-h6 text-center">
                         <q-btn
-                                class="justify-start q-ml-xs"
+                                style="position: absolute; left: 0"
                                 color="accent"
                                 icon="keyboard_arrow_left"
                                 size="9px"
@@ -13,9 +13,8 @@
                                 @click="back">
                             <q-tooltip content-class="bg-accent">Back to home</q-tooltip>
                         </q-btn>
-                    </div>
-
-                    <q-card-section class="text-h6">Sign up</q-card-section>
+                        Sign up
+                    </q-card-section>
                     <q-form @submit="register" class="full-width" autofocus>
                         <!--username-->
                         <q-input
